@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_catalog_product_videos>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="videogallery/adminhtml_catalog_product_edit_tab_videos" name="admin.product.videos">
+                <action method="setTemplate" ifconfig="videogallery/general/enable">
+                    <template>videogallery/video.phtml</template> 
+                </action>
+            </block>
+        </block>
+    </adminhtml_catalog_product_videos>
+</layout>

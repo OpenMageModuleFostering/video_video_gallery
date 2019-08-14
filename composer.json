@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Video_Video_Gallery",
+    "type": "magento-module",
+    "license": "Open-Software-License-(OSL)",
+    "homepage": "",
+    "description": "This extension add the possibility of you mixing your product images with unlimited Youtube videos easily. ",
+    "authors": [
+    {
+        "name": "eSparkBiz",
+        "email": "info@esparkinfo.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

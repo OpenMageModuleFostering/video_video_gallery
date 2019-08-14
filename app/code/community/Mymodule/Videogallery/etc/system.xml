@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+<tabs>
+    <mymoduleconfig translate="label" module="videogallery">
+        <label>Esparkbiz</label>
+        <sort_order>100</sort_order>
+    </mymoduleconfig>
+</tabs> 
+<sections>  
+    <videogallery translate="label" module="videogallery">
+        <label>Videogallery Settings</label>
+        <tab>mymoduleconfig</tab>
+        <frontend_type>text</frontend_type>
+        <sort_order>1000</sort_order>
+        <show_in_default>1</show_in_default>
+        <show_in_website>1</show_in_website>
+        <show_in_store>1</show_in_store>
+        <groups>            
+            <general>
+            <label>General</label>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>       
+              <fields>
+                    <enable translate="label">
+                    <label>Enable</label>
+                    <comment>
+                    <![CDATA[Enable or Disable this extension.]]>
+                    </comment>
+                    <frontend_type>select</frontend_type>
+                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>                    
+                    </enable>           
+             </fields>                 
+            </general>
+        </groups>
+    </videogallery>
+</sections>     
+</config>

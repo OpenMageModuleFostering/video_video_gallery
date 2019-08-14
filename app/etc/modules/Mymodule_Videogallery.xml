@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mymodule_Videogallery>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Mymodule_Videogallery>
+    </modules>
+</config> 

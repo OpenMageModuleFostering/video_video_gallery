@@ -1,0 +1,15 @@
+<div class="entry-edit videos product-videos">
+    <div class="entry-edit-head">
+        <h4><?php echo Mage::helper('catalog')->__('Videos') ?></h4>
+        <div class="right"><?php echo $this->getAddButtonHtml() ?></div>
+    </div>
+    <div id="product_videos_container" class="box">
+        <div id="product_videos_container_top"></div>
+        <?php echo $this->getVideosBoxHtml() ?>
+    </div>
+</div>
+
+<script type="text/javascript">
+// re-bind form elements onchange
+varienWindowOnload(true);
+</script>

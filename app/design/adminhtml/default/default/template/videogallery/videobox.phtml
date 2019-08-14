@@ -1,0 +1,77 @@
+<?php if($this->getVideoData()): $i=1; ?>
+<?php foreach ($this->getVideoData() as $key => $value): ?>
+<div class="video-box" id="video_<?php echo $i; ?>">
+    <table id="<?php echo $this->getFieldId() ?>_<?php echo $i; ?>" class="video-header" cellpadding="0" cellspacing="0">
+        <input type="hidden" id="<?php echo $this->getFieldId() ?>_<?php echo $i; ?>_is_delete" name="<?php echo $this->getFieldName() ?>[<?php echo $i; ?>][is_delete]" value="0" />
+        <input type="hidden" id="<?php echo $this->getFieldId() ?>_<?php echo $value['video_id']; ?>_id" name="<?php echo $this->getFieldName() ?>[<?php echo $i; ?>][video_id]" value="<?php echo $value['video_id']; ?>" />
+        <thead>
+            <tr>
+                <th class="opt-title"><?php echo Mage::helper('catalog')->__('Video URL') ?> <span class="required">*</span></th>
+                <th class="a-right">&nbsp;</th>
+                <th class="a-right">&nbsp;</th>
+                <th class="a-right">&nbsp;</th>
+                <th class="a-right"><?php echo $this->jsQuoteEscape($this->getDeleteButtonHtml()) ?></th>
+            </tr>
+        </thead>
+        <tr>
+            <td><input type="text" class="required-entry input-text" id="<?php echo $this->getFieldId() ?>_<?php echo $i; ?>_title" name="<?php echo $this->getFieldName() ?>[<?php echo $i; ?>][videoUrl]" value="<?php echo $value['video_url'] ?>"/></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+    </table>
+</div>
+<?php $i++;;endforeach; ?>
+<?php endif; ?>
+<script type="text/javascript">
+//<![CDATA[
+    var id=<?php echo $this->getVideoIdCount(); ?>;
+    $("add_new_defined_video").on("click",function(){
+        var firstStepTemplate = '<div class="video-box" id="video_'+id+'">'+
+            '<table id="<?php echo $this->getFieldId() ?>_'+id+'" class="video-header" cellpadding="0" cellspacing="0">'+
+            '<input type="hidden" id="<?php echo $this->getFieldId() ?>_'+id+'_is_delete" name="<?php echo $this->getFieldName() ?>['+id+'][is_delete]" value="0" />'+
+            '<thead>'+
+                '<tr>'+
+                    '<th class="opt-title"><?php echo Mage::helper('catalog')->__('Enter Video URL') ?> <span class="required">*</span></th>'+
+                    '<th class="a-right">&nbsp;</th>'+
+                    '<th class="a-right">&nbsp;</th>'+
+                    '<th class="a-right">&nbsp;</th>'+
+                    '<th class="a-right"><?php echo $this->jsQuoteEscape($this->getDeleteButtonHtml()) ?></th>'+
+                '</tr>'+
+            '</thead>'+
+            '<tr>'+
+                '<td><input type="text" class="required-entry input-text" id="<?php echo $this->getFieldId() ?>_'+id+'_title" name="<?php echo $this->getFieldName() ?>['+id+'][videoUrl]""></td>'+
+                '<td>&nbsp;</td>'+
+                '<td>&nbsp;</td>'+
+                '<td>&nbsp;</td>'+
+            '</tr></table></div>';
+            $("product_videos_container").insert(firstStepTemplate);
+            id++;
+            productVideo.bindRemoveButtons();
+      });
+      
+      var productVideo = {
+          add:function(){
+              
+          },
+          bindRemoveButtons: function(){ 
+              var buttons = $$('.delete-video');
+                for(var i=0;i<buttons.length;i++){
+                    if(!$(buttons[i]).binded){
+                        $(buttons[i]).binded = true;
+                        Event.observe(buttons[i], 'click', this.remove.bind(this));
+                    }
+                }
+              },
+           remove: function(event){
+               var element = $(Event.findElement(event, 'div'));
+                if(element){
+                    $('product_'+element.readAttribute('id')+'_'+'is_delete').value = '1';
+                    element.addClassName('no-display');
+                    element.addClassName('ignore-validate');
+                    element.hide();
+                }
+           }
+       }
+       productVideo.bindRemoveButtons();
+//]]>
+</script>
